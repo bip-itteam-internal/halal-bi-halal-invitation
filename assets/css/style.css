@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap");
 
 :root {
-  --primary-color: #4478b4d9;
+  --primary-color: #0254b1d9;
   --secondary-color: #f5f0e8;
-  --text-color: #333;
+  --text-color: #242424;
   --light-text: #bebebe;
   --white: #fff;
 }
@@ -11,7 +11,7 @@
 body {
   font-family: "Montserrat", sans-serif;
   color: var(--text-color);
-  background: linear-gradient(rgb(0 68 123 / 90%), rgba(255, 255, 255, 0.9)), url("../images/old-background.png") center / cover no-repeat;
+  background: linear-gradient(rgb(0 68 123 / 90%), rgba(255, 255, 255, 0.9)), url("../images/old-background.webp") center / cover no-repeat;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -35,7 +35,7 @@ h3,
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgb(0 68 123 / 90%), rgba(255, 255, 255, 0.9)), url("../images/background.png") center / cover no-repeat;
+    background: linear-gradient(rgb(0 68 123 / 90%), rgba(255, 255, 255, 0.9)), url("../images/background.webp") center / cover no-repeat;
     position: relative;
 }
 
