@@ -41,7 +41,7 @@
       }
 
       .container {
-        max-width: 500px;
+        max-width: 600px;
         padding: 0 20px;
       }
 
@@ -518,6 +518,102 @@
         right: 5%;
       }
 
+      /* Rundown Table Styles */
+      #rundown{
+        margin-top: 100px;
+      }
+      .rundown-table-container {
+        overflow-x: auto;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        background-color: var(--white);
+        position: relative;
+        z-index: 1;
+        margin-top: 30px;
+        /* Add scrollbar styling for better visibility */
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary-color) #f1f1f1;
+        /* Add scroll indicators */
+        background-image:
+          linear-gradient(to right, var(--white) 0%, rgba(255, 255, 255, 0) 2%),
+          linear-gradient(to left, var(--white) 0%, rgba(255, 255, 255, 0) 2%);
+        background-position: left center, right center;
+        background-repeat: no-repeat;
+        background-size: 20px 100%, 20px 100%;
+        background-attachment: local, local;
+      }
+
+      /* Style the scrollbar for WebKit browsers */
+      .rundown-table-container::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .rundown-table-container::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+
+      .rundown-table-container::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 10px;
+      }
+
+      .rundown-table-container::-webkit-scrollbar-thumb:hover {
+        background: #75583f;
+      }
+
+      .rundown-table {
+        width: 100%;
+        min-width: 500px;
+        /* Ensure table has minimum width to trigger scrolling on mobile */
+        border-collapse: collapse;
+        font-size: 0.75rem;
+      }
+
+      .rundown-table th {
+        background-color: var(--primary-color);
+        color: var(--white);
+        padding: 12px 15px;
+        text-align: left;
+        font-weight: 500;
+        white-space: nowrap;
+        /* Prevent header text from wrapping */
+      }
+
+      .rundown-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .rundown-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .rundown-table tr:nth-child(even) {
+        background-color: rgba(0, 0, 0, 0.02);
+      }
+
+      .rundown-table .no-column {
+        width: 40px;
+        text-align: center;
+      }
+
+      .rundown-table .time-column {
+        width: 90px;
+        white-space: nowrap;
+        /* Prevent time from wrapping */
+      }
+
+      /* Scroll indicator text for mobile */
+      .scroll-indicator {
+        display: none;
+        font-size: 0.8rem;
+        color: var(--light-text);
+        text-align: center;
+        margin-top: 8px;
+        font-style: italic;
+      }
+
       /* Location Section Specific Decorations */
       #location .bg-star:nth-child(1) {
         top: 10%;
@@ -717,6 +813,13 @@
         margin-bottom: 10px;
       }
 
+      .greeting-close {
+        margin-top: 10px;
+        font-style: italic;
+        color: var(--text-text);
+        font-size: 1rem;
+      }
+
       /* Location Section */
       .map-container {
         border-radius: 15px;
@@ -890,6 +993,33 @@
           width: 30px;
           height: 30px;
         }
+
+        .rundown-table {
+          font-size: 0.85rem;
+        }
+
+        .rundown-table th,
+        .rundown-table td {
+          padding: 10px 8px;
+        }
+
+        .rundown-table .no-column {
+          width: 30px;
+        }
+
+        .rundown-table .time-column {
+          width: 70px;
+        }
+
+        /* Show scroll indicator on mobile */
+        .scroll-indicator {
+          display: block;
+        }
+
+        /* Add touch-friendly padding */
+        .rundown-table-container {
+          padding-bottom: 5px;
+        }
       }
     </style>
   </head>
@@ -945,11 +1075,11 @@
           <div class="logo-container fade-in">
             <img src="assets/images/logo.webp" alt="Company Logo" class="logo" width="120">
           </div>
-          <h1 class="mt-4 fade-in delay-1">Halal Bihalal 2025</h1>
+          <h1 class="mt-4 fade-in delay-1" style="font-weight: 700;">Halal Bihalal 2025</h1>
           <h2 class="company-name fade-in delay-2">PT Bharata Internasional Pharmaceutical</h2>
           <p class="recipient fade-in delay-3">Kepada Winning Team Bharata</p>
           <button id="open-invitation" class="btn btn-primary mt-5 mb-2 fade-in delay-5">Buka Undangan</button>
-          <audio src="assets/music/ramadan.mp3"></audio>
+          <audio src="assets/music/ramadan.mp3" muted></audio>
         </div>
       </div>
     </section>
@@ -968,7 +1098,7 @@
         <div class="container text-center">
           <div class="quote-content">
             <i class="fas fa-quote-left fa-2x mb-3"></i>
-            <p class="quote-text">Setelah melewati bulan suci Ramadhan, mari kita pererat silaturahmi dan saling memaafkan dalam kebersamaan.</p>
+            <p class="quote-text"> Dalam rangka mempererat tali silaturahmi, PT Bharata Internasional Pharmaceutical akan menyelenggarakan acara <b>Halal Bihalal</b>. Sehubungan dengan itu, kami mengundang Bapak/Ibu untuk hadir dalam acara tersebut, yang akan diselenggarakan pada: </p>
             <i class="fas fa-quote-right fa-2x mt-3"></i>
           </div>
         </div>
@@ -1007,7 +1137,7 @@
                   <div class="hanging-string"></div>
                   <div class="moon"></div>
                 </div>
-                <div class="hanging-item" style="margin-left: 250px;">
+                <div class="hanging-item" style="margin-left: 200px;">
                   <div class="hanging-string"></div>
                   <div class="mosque">
                     <div class="mosque-dome"></div>
@@ -1026,21 +1156,161 @@
             <div class="card-body">
               <div class="event-item">
                 <i class="fas fa-calendar-alt"></i>
-                <h3>Hari</h3>
+                <h3>Hari/Tanggal</h3>
                 <p>Senin, 14 April 2025</p>
               </div>
               <div class="event-item">
                 <i class="fas fa-clock"></i>
                 <h3>Waktu</h3>
-                <p>12.30 - 17.00 <br> & <br> 18.30 - 22.00 WIB</p>
+                <p>13.00 WIB - Selesai</p>
               </div>
               <div class="event-item">
                 <i class="fas fa-map-marker-alt"></i>
                 <h3>Tempat</h3>
                 <p>Halaman Parkir Kantor Pusat</p>
               </div>
+              <div class="event-item">
+                <p class="greeting-close">Kami sangat berharap kehadiran Bapak/Ibu dalam acara ini guna mempererat kebersamaan dan menjalin silaturahmi yang lebih erat. Atas perhatian dan kehadiran Bapak/Ibu, kami mengucapkan terima kasih.</p>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+      <!-- Rundown Section -->
+      <section id="rundown" class="section">
+        <div class="container text-center">
+          <h2 class="section-title" style="margin-top: -175px !important; color: #ffffff !important; font-weight: 700 !important;">Rundown Acara</h2>
+          <div class="rundown-table-container">
+            <table class="rundown-table">
+              <thead>
+                <tr>
+                  <th class="no-column">No</th>
+                  <th class="time-column">Waktu</th>
+                  <th>Uraian Acara</th>
+                  <th>Pengisi Acara</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="no-column">1</td>
+                  <td class="time-column">12:30 - 13:00 WIB</td>
+                  <td>Registrasi Peserta</td>
+                  <td>SIE KESEKRETARIATAN</td>
+                </tr>
+                <tr>
+                  <td class="no-column">2</td>
+                  <td class="time-column">13:00 - 13:15 WIB</td>
+                  <td>Pembukaan oleh MC</td>
+                  <td>FADILLAH OKTAVIANI</td>
+                </tr>
+                <tr>
+                  <td class="no-column">3</td>
+                  <td class="time-column">13:15 - 13:30 WIB</td>
+                  <td>Pembacaan Ayat Suci Al-Qur'an</td>
+                  <td>M. YASROH</td>
+                </tr>
+                <tr>
+                  <td class="no-column">4</td>
+                  <td class="time-column">13:40 - 14:00 WIB</td>
+                  <td>Sambutan Ketua Panitia</td>
+                  <td>MAFTUHISSAIIN</td>
+                </tr>
+                <tr>
+                  <td class="no-column">5</td>
+                  <td class="time-column">14:00 - 14:15 WIB</td>
+                  <td>Sambutan Perwakilan Marketing Herbal</td>
+                  <td>MARKETING</td>
+                </tr>
+                <tr>
+                  <td class="no-column">6</td>
+                  <td class="time-column">14:15 - 14:30 WIB</td>
+                  <td>Sambutan Direktur PT Bharata Internasional</td>
+                  <td>BAPAK WIRAWAN WIDI ATMOKO</td>
+                </tr>
+                <tr>
+                  <td class="no-column">7</td>
+                  <td class="time-column">14:30 - 16:00 WIB</td>
+                  <td>Tausiyah & Doa</td>
+                  <td>K.H. AHMAD FAKIH</td>
+                </tr>
+                <tr>
+                  <td class="no-column">8</td>
+                  <td class="time-column">16:00 - 16:10 WIB</td>
+                  <td>Penutup oleh MC</td>
+                  <td>FADILLAH OKTAVIANI</td>
+                </tr>
+                <tr>
+                  <td class="no-column">9</td>
+                  <td class="time-column">16:10 - 16:30 WIB</td>
+                  <td>Halal Bihalal Semua Tim</td>
+                  <td>FADILLAH OKTAVIANI</td>
+                </tr>
+                <tr>
+                  <td class="no-column">10</td>
+                  <td class="time-column">16:30 - 17:00 WIB</td>
+                  <td>ISHOMA</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td class="no-column">11</td>
+                  <td class="time-column">17:00 - 18:00 WIB</td>
+                  <td>Sarasehan</td>
+                  <td>BAPAK WIRAWAN WIDI ATMOKO</td>
+                </tr>
+                <tr>
+                  <td class="no-column">12</td>
+                  <td class="time-column">18:00 - 18:30 WIB</td>
+                  <td>ISHOMA</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td class="no-column">13</td>
+                  <td class="time-column">18:30 - 19:00 WIB</td>
+                  <td>Registrasi Peserta</td>
+                  <td>SIE KESEKRETARIATAN</td>
+                </tr>
+                <tr>
+                  <td class="no-column">14</td>
+                  <td class="time-column">19:00 - 19:30 WIB</td>
+                  <td>Pembukaan oleh MC</td>
+                  <td>TARMIN & SAMIDI</td>
+                </tr>
+                <tr>
+                  <td class="no-column">15</td>
+                  <td class="time-column">19:30 - 20:00 WIB</td>
+                  <td>Bharata Band</td>
+                  <td>BHARATA BAND</td>
+                </tr>
+                <tr>
+                  <td class="no-column">16</td>
+                  <td class="time-column">20:00 - 20:15 WIB</td>
+                  <td>Pembacaan Nominasi</td>
+                  <td>TARMIN & SAMIDI</td>
+                </tr>
+                <tr>
+                  <td class="no-column">17</td>
+                  <td class="time-column">20:15 - 21:15 WIB</td>
+                  <td>Orange Band</td>
+                  <td>ORANGE BAND</td>
+                </tr>
+                <tr>
+                  <td class="no-column">18</td>
+                  <td class="time-column">21:15 - 22:15 WIB</td>
+                  <td>Letto Band</td>
+                  <td>LETTO BAND</td>
+                </tr>
+                <tr>
+                  <td class="no-column">19</td>
+                  <td class="time-column">22:15 - 22:30 WIB</td>
+                  <td>Penutupan oleh MC</td>
+                  <td>TARMIN & SAMIDI</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="scroll-indicator" style="color: #f1f1f1;">
+            <i class="fas fa-arrows-left-right me-1"></i> Geser ke kiri atau kanan untuk melihat seluruh tabel
+          </p>
         </div>
       </section>
       <!-- Location Section -->
@@ -1057,18 +1327,10 @@
         <div class="container text-center">
           <h2 class="section-title" style="margin-top: -100px !important; color: #ffffff !important; font-weight: 700 !important;">Lokasi</h2>
           <div class="map-container">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d989.0606126824678!2d108.7682742!3d-7.4384036!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e658324d956f6dd%3A0x8920ece4270a7e7e!2sPT.%20Bharata%20Internasional%20Pharmaceutical%20-%20Pabrik%20Kosmetik%20Dan%20Obat%20Herbal%20-%20Maklon%20Kosmetik!5e0!3m2!1sid!2sid!4v1742271719789!5m2!1sid!2sid" 
-              width="100%" 
-              height="300" 
-              style="border:0;" 
-              allowfullscreen="" 
-              loading="lazy">
-            </iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d989.0606126824678!2d108.7682742!3d-7.4384036!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e658324d956f6dd%3A0x8920ece4270a7e7e!2sPT.%20Bharata%20Internasional%20Pharmaceutical%20-%20Pabrik%20Kosmetik%20Dan%20Obat%20Herbal%20-%20Maklon%20Kosmetik!5e0!3m2!1sid!2sid!4v1742271719789!5m2!1sid!2sid" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
           </div>
           <a href="https://maps.app.goo.gl/haQTCunN6bv3SrTe8" class="btn btn-primary mt-3" target="_blank">
-            <i class="fas fa-directions me-2"></i>Petunjuk Arah
-          </a>
+            <i class="fas fa-directions me-2"></i>Petunjuk Arah </a>
         </div>
       </section>
       <!-- Thank You Section -->
@@ -1084,13 +1346,12 @@
         </div>
         <div class="container text-center">
           <h2 class="section-title" style="margin-top: -100px; color: #ffffff !important; font-weight: 700 !important;">Terima Kasih</h2>
-          <p class="thank-you-text">Kehadiran Winning Team Bharata akan sangat berarti bagi kami. <br>Kami harapkan kehadiran rekan-rekan semua di Halal Bihalal 2025 😊 </p>
-          <a href="https://halal-bihalal-2025.netlify.app" class="btn btn-primary mt-3" target="_blank">
-            <i class="fas fa-qrcode me-2"></i> Absensi Kehadiran
-          </a>
+          <p class="thank-you-text">Absensi dapat dilakukan dengan mengklik tombol di bawah: </p>
+          <a href="https://halal-bihalal-2025.netlify.app" class="btn btn-primary mt-2" target="_blank">
+            <i class="fas fa-qrcode me-2"></i> Absensi Kehadiran </a>
           <div class="signature">
             <p>Hormat Kami,</p>
-            <h3>Manajemen <br> PT Bharata Internasional Pharmaceutical </h3>
+            <h3 style="font-weight: 700;">Manajemen <br> PT Bharata Internasional Pharmaceutical </h3>
           </div>
         </div>
       </section>
@@ -1107,6 +1368,9 @@
             <button class="nav-btn" data-section="details">
               <i class="fas fa-info-circle"></i>
             </button>
+            <button class="nav-btn" data-section="rundown">
+              <i class="fas fa-table"></i>
+            </button>
             <button class="nav-btn" data-section="location">
               <i class="fas fa-map-marker-alt"></i>
             </button>
@@ -1117,7 +1381,6 @@
         </div>
       </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
