@@ -1,11 +1,7 @@
 
 const urlParams = new URLSearchParams(window.location.search);
 const toValue = urlParams.get('to');
-if (toValue) {
-    document.getElementById('recipient').textContent = toValue;
-}else{
-    document.getElementById('recipient').textContent = 'Kepada Winning Team Bharata';
-}
+document.getElementById('recipient').textContent = decodeURIComponent(toValue) || 'Kepada Winning Team Bharata';
 
 document.addEventListener("DOMContentLoaded", () => {
 	const openInvitationBtn = document.getElementById("open-invitation");
