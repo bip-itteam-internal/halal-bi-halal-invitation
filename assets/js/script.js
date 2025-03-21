@@ -1,7 +1,11 @@
 
 const urlParams = new URLSearchParams(window.location.search);
 const toValue = urlParams.get('to');
-document.getElementById('recipient').textContent = decodeURIComponent(toValue) || 'Kepada Winning Team Bharata';
+if (toValue) {
+    document.getElementById('recipient').textContent = decodeURIComponent(toValue);
+}else{
+    document.getElementById('recipient').textContent = 'Kepada Winning Team Bharata';
+}
 
 document.addEventListener("DOMContentLoaded", () => {
 	const openInvitationBtn = document.getElementById("open-invitation");
