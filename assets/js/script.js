@@ -1,3 +1,12 @@
+
+const urlParams = new URLSearchParams(window.location.search);
+const toValue = urlParams.get('to');
+if (toValue) {
+    document.getElementById('recipient').textContent = toValue;
+}else{
+    document.getElementById('recipient').textContent = 'Kepada Winning Team Bharata';
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 	const openInvitationBtn = document.getElementById("open-invitation");
 	const coverSection = document.getElementById("cover");
@@ -108,8 +117,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		button.addEventListener("click", function(e) {
 			e.preventDefault();
 			if (this.getAttribute('data-section') === null) {
-				location.href = this.getAttribute('href');
-				return;
+                location.reload();
+                return;
 			}
 			const sectionId = this.getAttribute('data-section');
 			navButtons.forEach(btn => btn.classList.remove('active'));
