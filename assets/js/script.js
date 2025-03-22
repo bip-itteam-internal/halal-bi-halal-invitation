@@ -8,7 +8,11 @@ if (toValue) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-	const openInvitationBtn = document.getElementById("open-invitation");
+	const openInvitationBtn = document.getElementById("open-invitation")
+	const muteButton = document.getElementById('muteButton');
+	const volumeIcon = document.getElementById('volumeIcon');
+	const backgroundMusic = document.getElementById('backgroundMusic');
+	const audioControl = document.getElementById('audio-control');
 	const coverSection = document.getElementById("cover");
 	const mainContent = document.getElementById("main-content");
 	const navigation = document.getElementById("navigation");
@@ -91,12 +95,26 @@ document.addEventListener("DOMContentLoaded", () => {
 	document.head.appendChild(style);
 	initCoverAnimations();
 	openInvitationBtn.addEventListener("click", function() {
-		const audio = document.querySelector("audio");
-		if (audio) {
-			audio.volume = 0.5;
-			audio.play().catch(error => console.log("Audio playback error:", error));
+		// Play Music
+		audioControl.classList.remove('hidden');
+		if (backgroundMusic) {
+			backgroundMusic.volume = 0.5;
+			backgroundMusic.play().catch(error => console.log("Audio playback error:", error));
 		}
+		muteButton.addEventListener('click', function() {
+			if (backgroundMusic.paused) {
+				backgroundMusic.play();
+				volumeIcon.classList.remove('fa-volume-mute');
+				volumeIcon.classList.add('fa-volume-up');
+			} else {
+				backgroundMusic.pause();
+				volumeIcon.classList.remove('fa-volume-up');
+				volumeIcon.classList.add('fa-volume-mute');
+			}
+		})
+
 		createConfetti();
+		
 		coverSection.classList.remove("active");
 		coverSection.style.display = "none";
 		mainContent.classList.remove("d-none");
@@ -207,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 		});
 	}
-
+	// Pagination
 	const itemsPerPage = 5;
 	const rundownItems = document.querySelectorAll('.rundown-item');
 	const totalItems = rundownItems.length;

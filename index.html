@@ -69,7 +69,6 @@
 					<h2 class="company-name fade-in delay-2">PT Bharata Internasional Pharmaceutical</h2>
 					<p class="recipient fade-in delay-3" id="recipient"></p>
 					<button id="open-invitation" class="btn btn-primary mt-5 mb-2 fade-in delay-5">Buka Undangan</button>
-					<audio src="assets/music/ramadan.mp3"></audio>
 				</div>
 			</div>
 		</section>
@@ -355,6 +354,16 @@
 					</div>
 				</div>
 			</section>
+			<!-- Music -->
+			<div id="audio-control" class="audio-control hidden">
+				<button id="muteButton" class="mute-button" aria-label="Mute or unmute audio">
+				  <i class="fas fa-volume-up" id="volumeIcon"></i>
+				</button>
+			  </div>
+			<audio id="backgroundMusic" loop>
+				<source src="assets/music/ramadan.mp3" type="audio/mp3">
+				Browser kamu tidak mendukung untuk memutar music
+			</audio>
 			<!-- Navigation -->
 			<div id="navigation" class="fixed-bottom d-none">
 				<div class="container">
