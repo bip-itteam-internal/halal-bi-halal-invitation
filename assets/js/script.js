@@ -104,12 +104,12 @@ document.addEventListener("DOMContentLoaded", () => {
 		muteButton.addEventListener('click', function() {
 			if (backgroundMusic.paused) {
 				backgroundMusic.play();
-				volumeIcon.classList.remove('fa-volume-mute');
-				volumeIcon.classList.add('fa-volume-up');
-			} else {
-				backgroundMusic.pause();
 				volumeIcon.classList.remove('fa-volume-up');
 				volumeIcon.classList.add('fa-volume-mute');
+			} else {
+				backgroundMusic.pause();
+				volumeIcon.classList.remove('fa-volume-mute');
+				volumeIcon.classList.add('fa-volume-up');
 			}
 		})
 
